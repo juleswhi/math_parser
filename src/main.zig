@@ -1,11 +1,13 @@
 const std = @import("std");
+const parse = @import("parse.zig").parse;
 
 pub fn main() !void {
-    std.debug.print("Input: \n", .{});
-    const al = std.heap.page_allocator;
-    const data = try read_file("math", &al);
+    // const al = std.heap.page_allocator;
+    // const data = try read_file("math", &al);
 
-    std.debug.print("{s}\n", .{data});
+    try parse("2*6+4*5");
+
+    // std.debug.print("{s}\n", .{data});
 }
 
 fn read_file(filename: []const u8, alloc: *const std.mem.Allocator) ![]const u8 {
